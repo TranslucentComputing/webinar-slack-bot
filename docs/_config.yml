@@ -1,4 +1,4 @@
-remote_theme: jekyll-agency
+remote_theme: raviriley/agency-jekyll-theme
 plugins:
   - jekyll-remote-theme
 title: Slack Bot For Kubernetes
@@ -6,3 +6,4 @@ description: This project demonstrates how to use DevSpace and develop Slack Bot
 author: TC Team
 locale: "en-US" # See available languages in _data/sitetext.yml
 markdown: kramdown
+email: patryk@translucentcomputing.com
