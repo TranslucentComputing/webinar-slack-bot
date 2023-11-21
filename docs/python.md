@@ -8,10 +8,10 @@ nav_exclude: false
 ## Python
 
 Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. It's widely used in various fields, from web development to data science and artificial intelligence.
+​
+To manage the Python version and third party libraries we are using pyenv and Poetry. For the Python project management we use the pyproject.toml configuration file.
 
-To manage the Python version and third party libraries we are using pyenv and Poetry. For the Python project management we use pyproject.toml configuration file.
-
-`pyenv` is a tool for managing multiple Python versions on a single system. It's especially useful in environments where different projects require different Python versions. Additionally, we are using `pyenv-virtualenv` plugin.
+`pyenv` is a tool for managing multiple Python versions on a single system. It's especially useful in environments where different projects require different Python versions. Additionally, we are using the `pyenv-virtualenv` plugin.
 
 *[Install link](https://realpython.com/intro-to-pyenv/#installing-pyenv)*.
 
@@ -19,7 +19,7 @@ To manage the Python version and third party libraries we are using pyenv and Po
 
 *[Install link](https://python-poetry.org/docs/)*.
 
-`pyproject.toml` file is a configuration file for Python projects, introduced in PEP 518 as a means to improve the specification of project build requirements. This file represents a significant shift from the traditional setup.py script, offering a more standardized and straightforward way to manage project metadata and dependencies.
+`pyproject.toml` is a configuration file for Python projects, introduced in PEP 518 as a means to improve the specification of project build requirements. This file represents a significant shift from the traditional setup.py script, offering a more standardized and straightforward way to manage project metadata and dependencies.
 
 ### pyenv Configuration
 
@@ -43,7 +43,7 @@ pyenv local webinar-slackbot
 
 ### Poetry Configuration
 
-After the Python envorioment has been created with pyenv, we install Poetry.
+After the Python environment has been created with pyenv, we install Poetry.
 
 ```zsh
 python -m pip install -U pip setuptools
@@ -73,11 +73,11 @@ The Python libraries used to support development are listed in:
 [tool.poetry.dev-dependencies]
 ```
 
-Additional configuration of dev tools is defines in the file as well.
+Additional configuration of dev tools is also defined in the file.
 
 ### Install Python Libraries
 
-After Poetry has been install and the pyproject.toml has been configure, install the libraries with this command:
+After Peotry has been installed and the pyproject.toml has been configured, install the libraries with this command:
 
 ```zsh
 poetry install
