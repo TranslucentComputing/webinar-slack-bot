@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: slack-bot-server-monitor
+  labels:
+    release: "replace-me"
+spec:
+  jobLabel: slack-bot-server-monitor
+  selector:
+    matchLabels:
+      app: slack-bot-server
+  endpoints:
+    - port: uvicorn
+      interval: 30s
+      path: /metrics

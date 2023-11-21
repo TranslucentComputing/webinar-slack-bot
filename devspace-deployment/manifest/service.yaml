@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: slack-bot-server
+  labels:
+    app: slack-bot-server
+spec:
+  type: ClusterIP
+  ports:
+    - name: uvicorn
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: slack-bot-server

@@ -1,0 +1,46 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: slack-bot-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slack-bot-server
+  template:
+    metadata:
+      labels:
+        app: slack-bot-server
+    spec:
+      containers:
+        - name: dev
+          image: "replace-me"
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1024Mi
+            requests:
+              cpu: "1"
+              memory: 1024Mi
+
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 3000
+            initialDelaySeconds: 10 # Time to wait after the container starts before the first probe
+            periodSeconds: 10 # How often to perform the probe
+            timeoutSeconds: 5 # How long to wait for the probe to timeout
+            successThreshold: 1 # Minimum consecutive successes for the probe to be considered successful after having failed
+            failureThreshold: 3 # Number of failures to allow before considering the container unhealthy
+
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 3000
+            initialDelaySeconds: 10 # This can be less than liveness probe to allow traffic as soon as the app is ready
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
