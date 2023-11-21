@@ -45,3 +45,9 @@ Review:
 4. Slack configuration [Here](slack.html).
 5. Before you dev [Here](start.html).
 6. Application dev [Here](app_dev.html).
+7. ETL [Here](etl.html).
+
+### Slides From Webinar
+
+- <a href="file:///assets/pdf/kubert_application_journey.pdf">Kubert App Journey</a>
+- <a href="file:///assets/pdf/assets/pdf/slack_bot.pdf">Slack Bot</a>

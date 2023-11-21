@@ -22,7 +22,7 @@ LOGFILE="${LOGS_DIR}/etl_job.log"
 source ${SCRIPT_DIR}/support_functions.sh
 
 # Set the path to the .env file
-export ENV_FILE_PATH="${ETL_DIR}/.env"
+export ENV_FILE_PATH="${ETL_DIR}/.env_etl"
 
 # Set environment variables
 export DATA_DIR="${DATA_DIR}"

@@ -63,13 +63,13 @@ The file defines the required and development dependencies that will be managed 
 
 The required Python libraries are listed in:
 
-```
+```zsh
 [tool.poetry.dependencies]
 ```
 
 The Python libraries used to support development are listed in:
 
-```
+```zsh
 [tool.poetry.dev-dependencies]
 ```
 
@@ -77,7 +77,7 @@ Additional configuration of dev tools is defines in the file as well.
 
 ### Install Python Libraries
 
-After Peotry has been install and the pyproject.toml has been configure, install the libraries with this command:
+After Poetry has been install and the pyproject.toml has been configure, install the libraries with this command:
 
 ```zsh
 poetry install
