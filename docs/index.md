@@ -49,5 +49,5 @@ Review:
 
 ### Slides From Webinar
 
-- <a href="file:///assets/pdf/kubert_application_journey.pdf">Kubert App Journey</a>
-- <a href="file:///assets/pdf/assets/pdf/slack_bot.pdf">Slack Bot</a>
+- <a href="file://assets/pdf/kubert_application_journey.pdf" target="_blank">Kubert App Journey</a>
+- <a href="file://assets/pdf/assets/pdf/slack_bot.pdf" target="_blank">Slack Bot</a>
