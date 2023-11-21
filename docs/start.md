@@ -5,11 +5,11 @@ nav_order: 1
 nav_exclude: false
 ---
 
-There are several resource in this project that have to customize for your deployment.
+There are several resource in this project that have to be customize for your development and deployment.
 
 ## Update Kubernetes Manifest
 
-Before deploying the application, there are several Kubernetes files that have to be customize for your deployment.
+Kubernetes manifest refers to the YAML or JSON file that describes how an application or service should be deployed and managed within a Kubernetes cluster. These manifests are crucial for defining the desired state of your application in the Kubernetes environment.
 
 ### Ingress
 
@@ -17,7 +17,7 @@ In Kubernetes, an Ingress resource is a flexible tool that manages external acce
 
 Ingress serves as an entry point for your cluster's network, enabling external traffic to reach the correct services within your Kubernetes cluster. It allows you to expose multiple services under a single IP address, with traffic routing based on the request's host or path.
 
-Since the Slack system requires a public domain to access we are deploying Ingress resource and it has to be update before deployment. The file to update is `devspace-deployment/kube-proxy/ingress.yaml`
+Since the Slack system requires a public domain, we are deploying an Ingress resource and it has to be customized before deployment. The file to update is `devspace-deployment/kube-proxy/ingress.yaml`
 
 ### Replace the Hostname
 
@@ -48,7 +48,7 @@ And in the TLS section.
 cert-manager.io/cluster-issuer: <your-cluster-issuer>
 ```
 
-The cert-manager is used to provision Lets Encrypt TLS certificate.
+The cert-manager is used to provision the Lets Encrypt TLS certificates.
 
 To find the name of the cluster issuer installed with in your cluster, list all the cluster issuers.
 
@@ -78,17 +78,17 @@ kubectl get prometheus -A
 
 If prometheus is install the command will return the name of the deployment and namespace. We would use both to get the description of the deployment.
 
-```
+```zsh
 kubectl describe prometheus -n monitoring 
 ```
 
 or
 
-```
+```zsh
 kubectl get prometheus -n monitoring -o yaml
 ```
 
-Checking the result we can see in our case under the serviceMonitorSelector we have
+Checking the result we can see in our case under the serviceMonitorSelector we have,
 
 ```yaml
 serviceMonitorSelector:
@@ -96,7 +96,7 @@ serviceMonitorSelector:
         release: dev-tekstack-monitoring-kube-prom-stack
 ```
 
-Update the service_monitor.yaml and to the labels add
+Update the service_monitor.yaml and add to the labels
 
 ```yaml
 release: dev-tekstack-monitoring-kube-prom-stack
@@ -106,17 +106,17 @@ release: dev-tekstack-monitoring-kube-prom-stack
 
 DevSpace is used to build images for the required containers that are deployed. In DevSpace, an image typically refers to a Docker image. This is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files. By containerizing applications into images, DevSpace enables consistent, reliable, and portable software deployments.
 
-To make it easier to update the image for your specific image repository the image names have be externalized into the ```.env.devspace``` file. There is all ```.env.devspace_bak``` that has the variables that are expected by the devspace.yaml file.
+To make it easier to update the image for your specific image repository the image names have be externalized into the ```.env.devspace``` file. There is a template file ```.env.devspace_bak``` that has the variables that are expected be used in the devspace.yaml file.
 
 Create the ```.env.devspace``` file with full image names.
 
-`IMAGE=`: This is the main Docker image for your application. It is used with `devspace deploy`.
+`IMAGE=` This is the main Docker image for your application. It is used with `devspace deploy`.
 
-`IMAGE_DEV=`: This Docker image specifically tailored for development purposes. It is used with `devspace dev`.
+`IMAGE_DEV=` This Docker image specifically tailored for development purposes. It is used with `devspace dev`.
 
-`IMAGE_REDIS_STACK=`: This image for a Redis deployment.
+`IMAGE_REDIS_STACK=` This image for a Redis deployment.
 
-Since we are using Google image repository our file would look like
+Since we are using the Google Container Repository(GCR), our file would look something like:
 
 ```zsh
 IMAGE=gcr.io/<project_name>/webinar/slackbot/slack-bot-server
@@ -130,7 +130,7 @@ Since DevSpace will automatically build and push this images to your repository 
 
 ## Update Slack credentials
 
-To access Slack server with the Slack Bot we have to provide the Slack credentials. The credentials are locate in the `.env` file. We also provide `.env_bak` file as an example.
+To access Slack server with the Slack Bot we have to provide the Slack credentials. The credentials are locate in the `.env` file. We also provide template `.env_bak` file as an example.
 
 Create the `.env` file and update:
 

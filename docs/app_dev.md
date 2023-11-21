@@ -7,7 +7,7 @@ nav_exclude: false
 
 ## Application Development in the Slack Bot Project
 
-The Slack Bot project leverages FastAPI, a modern, fast web framework for building APIs with Python. The project adopts a standard layered architecture, ensuring maintainability and scalability. A significant focus is placed on robust testing, using `pytest` for both unit and integration testing, with the integration of [Testcontainers](<https://testcontainers.com>) to simulate real-world scenarios.
+The Slack Bot project leverages FastAPI, a modern, fast web framework for building APIs with Python. The project adopts a standard layered architecture, ensuring maintainability and scalability. A significant focus is placed on robust testing, using `pytest` for both unit and integration testing, with the support of [Testcontainers](<https://testcontainers.com>) to simulate real-world scenarios.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ Key layers include:
 
 ## Testing Strategy
 
-We utilize `pytest`, a powerful testing framework, for writing both simple and complex tests. It offers a clear and concise syntax, making our tests easy to write and understand.
+We use `pytest`, a powerful testing framework, for writing both simple and complex tests. It offers a clear and concise syntax, making our tests easy to write and understand.
 
 - Unit Testing: Focuses on testing individual components in isolation. Ensures that each part of the business logic performs as expected. Mocking is used extensively to isolate the tested components.
 

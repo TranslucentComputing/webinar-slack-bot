@@ -35,7 +35,7 @@ Activate the new venv
 pyenv activate webinar-slackbot
 ```
 
-Set the pyenv version as local for this directory
+Set the webinar-slackbot version as project local version.
 
 ```zsh
 pyenv local webinar-slackbot
@@ -77,7 +77,7 @@ Additional configuration of dev tools is also defined in the file.
 
 ### Install Python Libraries
 
-After Peotry has been installed and the pyproject.toml has been configured, install the libraries with this command:
+After Poetry has been installed and the pyproject.toml has been configured, install the libraries with this command:
 
 ```zsh
 poetry install
