@@ -1,11 +1,8 @@
-remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: jekyll-agency
 plugins:
   - jekyll-remote-theme
 title: Slack Bot For Kubernetes
 description: This project demonstrates how to use DevSpace and develop Slack Bot with Slack Bolt framework and FastAPI web framework. With deployment to the Kubernetes cluster.
-search_enabled: false
-sticky_navigation: true
-prev_next_buttons_location: None
-edit_on_github: false
-site_author: TC Team
-github_docs_folder: true
+author: TC Team
+locale: "en-US" # See available languages in _data/sitetext.yml
+markdown: kramdown
