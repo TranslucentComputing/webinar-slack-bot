@@ -16,8 +16,8 @@ There are several Kubernetes tools that are used by the Slack Bot deployment.
 
 ### Basic tools
 
-These tool provide the basic functionality in the cluster and support other tools and applications.
-These basic tools are deployed with Kubert basic package.
+These tools provide the basic functionality in the cluster and support other tools and applications.
+They are deployed with Kubert basic package.
 
 - `ExternalDNS`: is a tool that automates the management of DNS records based on services and ingresses within your Kubernetes cluster. It simplifies the process of making Kubernetes services discoverable via public DNS servers. It supports a variety of DNS providers, including AWS Route53, Google Cloud DNS, Azure DNS, Cloudflare, and more, allowing flexibility in choosing where to host DNS records.  ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers. This means that it can automatically update DNS records as services are added, modified, or removed in the cluster. *[Helm Chart](https://artifacthub.io/packages/helm/bitnami/external-dns)*.
 
@@ -27,15 +27,15 @@ These basic tools are deployed with Kubert basic package.
 
 ### Observability Tools
 
-Here is Kubert high-level view of the observability stack.
+Here is high-level overview of the Kubert's observability stack.
 
 ![observability](assets/img/kubert_observability.png)
 
-While we deploy full observability stack in our dev and production cluster, not every application uses the full stack. The Slack Bot has been configured for metrics and logs. It has been customized to allow Prometheus to scrap metrics from the FastAPI web container. Additionally, the logs have be customize in the Slack bot application to allow for log collections and aggregation. The metrics and the logs are used for both preventative and detective controls.
+While we deploy a full observability stack in our dev and production cluster, not every application uses the full stack. The Slack Bot has been configured for metrics and logs. It has been customized to allow Prometheus to scrap metrics from the FastAPI web container. Additionally, the logs have been customized in the Slack bot application to allow for log collections and aggregation. The metrics and logs are used for both preventative and detective controls.
 
 ## Reading Guide
 
-Since we cover a lot of concept and tools in this documentations here guide through the docs that we think might be efficient.
+Since we cover a lot of concepts and tools in this documentations here is a guide through the docs that we think might be efficient.
 
 Review:
 
@@ -43,5 +43,5 @@ Review:
 2. Python and library management [Here](python.html).
 3. DevSpace [Here](devspace.html)
 4. Slack configuration [Here](slack.html).
-5. Before you dev [Here](start.html)
-6. Application dev [Here](app_dev.html)
+5. Before you dev [Here](start.html).
+6. Application dev [Here](app_dev.html).
