@@ -41,8 +41,6 @@ While we deploy a full observability stack in our dev and production cluster, no
 
 Since we cover a lot of concepts and tools in this documentation, we think that the order below will provide the most efficient review.
 
-Review:
-
 1. IDE [Here](vscode.html).
 2. Python and library management [Here](python.html).
 3. DevSpace [Here](devspace.html)
