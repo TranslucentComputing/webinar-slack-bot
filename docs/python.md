@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Python
-nav_exclude: true
 ---
 
 ## Python

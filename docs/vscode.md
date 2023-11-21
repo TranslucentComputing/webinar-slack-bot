@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Visual Studio Code (IDE)
-nav_exclude: true
 ---
 
 ## VS Code

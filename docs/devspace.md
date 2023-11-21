@@ -1,7 +1,6 @@
 ---
 layout: default
 title: DevSpace
-nav_exclude: true
 ---
 
 ## DevSpace
