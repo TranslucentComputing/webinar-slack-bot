@@ -41,16 +41,16 @@ Once the scopes have been added the "Bot User OAuth Token" will be available in 
 
 ## Slack Events
 
-The configuration of Slack events has to be configured after the `.env` file has been updated, and the application has been deployed with DevSpace. [Here](app_dev.html)
+The configuration of Slack events has to be configured after the `.env` file has been updated, and the application has been deployed with DevSpace. More info is available [here](app_dev.html)
 
 In the "Events Subscriptions" we want to enable the events, configure the request URL, and configure the bot events subscriptions.
 
-The URL is the public URL that is configured in the Ingress YAML. [Here](start.md)
+The URL is the public URL that is configured in the Ingress YAML. More info is available [here](start.md)
 
 ![app events](assets/img/slack_events.png)
 
 ## Slack Interactions
 
-To allow for two-way communication, we enabled the Slack interactivity feature. Since we require the Slack Bot application to run for the request URL, the application must be deployed with DevSpace [Here](app_dev.html).
+To allow for two-way communication, we enabled the Slack interactivity feature. Since we require the Slack Bot application to run for the request URL, the application must be deployed with DevSpace. More info is available [here](app_dev.html).
 
 ![app interactions](assets/img/slack_interactions.png)
