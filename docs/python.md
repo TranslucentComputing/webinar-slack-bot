@@ -13,11 +13,11 @@ To manage the Python version and third party libraries we are using pyenv and Po
 
 `pyenv` is a tool for managing multiple Python versions on a single system. It's especially useful in environments where different projects require different Python versions. Additionally, we are using the `pyenv-virtualenv` plugin.
 
-*[Install link](https://realpython.com/intro-to-pyenv/#installing-pyenv)*.
+*<a href="https://realpython.com/intro-to-pyenv/#installing-pyenv" target="_blank">Install link</a>*
 
 `Poetry` is a tool for dependency management and packaging in Python. It's designed to handle project dependencies and package configuration with ease.
 
-*[Install link](https://python-poetry.org/docs/)*.
+*<a href="https://python-poetry.org/docs/" target="_blank">Install link</a>*
 
 `pyproject.toml` is a configuration file for Python projects, introduced in PEP 518 as a means to improve the specification of project build requirements. This file represents a significant shift from the traditional setup.py script, offering a more standardized and straightforward way to manage project metadata and dependencies.
 
