@@ -1,0 +1,23 @@
+# This is a Kubernetes Service
+apiVersion: v1
+kind: Service
+
+metadata:
+  # The name of the Service
+  name: slack-bot-proxy-service
+
+spec:
+  # This selector defines the set of Pods targeted by this Service
+  selector:
+    # This Service targets any Pods with the label 'app=slack-bot-proxy'
+    app: slack-bot-proxy
+
+  # The list of ports exposed by this Service
+  ports:
+    - protocol: TCP # The network protocol this port listens on
+      port: 80 # The port that this Service should serve on
+      targetPort: 80 # The port on the Pod that the request should be sent to
+
+  # This Service is of type ClusterIP, which means it's only accessible within the cluster
+  # Other types include NodePort and LoadBalancer, which expose services externally
+  type: ClusterIP

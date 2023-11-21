@@ -1,0 +1,29 @@
+{
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "emeraldwalk.RunOnSave",
+      "redhat.vscode-yaml",
+      "amodio.tsl-problem-matcher",
+      "Cameron.vscode-pytest",
+      "DavidAnson.vscode-markdownlint",
+      "donjayamanne.python-environment-manager",
+      "EricSia.pythonsnippets3",
+      "henriiik.docker-linter",
+      "joaompinto.vscode-graphviz",
+      "KevinRose.vsc-python-indent",
+      "magicstack.MagicPython",
+      "ms-azuretools.vscode-docker",
+      "ipedrazas.kubernetes-snippets",
+      "ms-python.black-formatter",
+      "ms-python.flake8",
+      "ms-python.isort",
+      "ms-python.pylint",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "Mukundan.python-docs",
+      "njpwerner.autodocstring",
+      "njqdev.vscode-python-typehint",
+      "streetsidesoftware.code-spell-checker"
+    ]
+  }

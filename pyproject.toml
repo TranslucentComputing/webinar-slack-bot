@@ -1,0 +1,75 @@
+[tool.poetry]
+name = "webinar-slackbot"
+version = "0.1.0"
+description = "Translucent Computing Inc webinar, Kubernetes application development."
+authors = ["Patryk Golabek <patryk@translucentcomputing.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+uvicorn = "^0.23"
+fastapi = "^0.103"
+aiohttp = "^3.8"
+slack_bolt = "^1"
+pydantic-settings = "^2.0"
+tenacity = "^8.2"
+redis = "^5"
+python-json-logger = "^2.0"
+starlette_exporter = "^0.16"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4"
+pytest-mock = "^3.11"
+pytest-cov = "^4.1"
+pytest-xdist = "^3.3"
+pytest-asyncio = "^0.21"
+pytest-aiohttp = "^1.0"
+black = "^23.3"
+flake8-blind-except = "^0.2"
+flake8-debugger = "^4.1"
+flake8-docstrings = "^1.7"
+flake8-black = "^0.3"
+flake8 = "^6.0"
+flake8-isort = "^6.0"
+Flake8-pyproject = "^1.2"
+pep8-naming = "^0.13"
+isort = "^5.12"
+mypy = "^1.4"
+testcontainers ="^3.7.1"
+nest-asyncio = "^1.5"
+httpx = "0.24.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+source = ["src"]
+
+# Additional command-line options for pytest
+[tool.pytest.ini_options]
+addopts = "-rA --log-cli-level=DEBUG -sv -n4 --import-mode=importlib --cov --cov-report html --cov-report term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test"]
+asyncio_mode = "auto"
+
+[tool.black]
+target-version = ['py39']
+line-length = 100
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 100
+skip_gitignore = true
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+mypy_path = ["src"]
+show_column_numbers = true
+show_error_codes = true
+check_untyped_defs = false
+warn_no_return = false

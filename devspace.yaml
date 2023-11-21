@@ -1,0 +1,115 @@
+version: v2beta1
+name: slack-bot
+
+# We define the different images used as variables.
+vars:
+  DEVSPACE_ENV_FILE: ".env.devspace"
+  IMAGE:
+    source: env
+  IMAGE_DEV:
+    source: env
+  IMAGE_REDIS_STACK:
+    source: env
+
+pipelines:
+  dev:
+    run: |-
+      create_deployments slack-server \
+        --set "kubectl.patches[0].value=$(get_image slack-bot-server)" \
+        --set "kubectl.patches[1].value=$(get_image redis-stack)"
+      start_dev slack-bot-server
+  deploy:
+    run: |-
+      build_images --all
+      create_deployments slack-server \
+        --set "kubectl.patches[0].value=$(get_image slack-bot-server)" \
+        --set "kubectl.patches[1].value=$(get_image redis-stack)"
+
+# Here we define how the images will be build.
+images:
+  slack-bot-server:
+    image: ${IMAGE}
+    dockerfile: ./Dockerfile
+    context: ./
+    buildArgs:
+      PYTHON_VERSION: "3.9.12-slim-bullseye"
+      PORT: "3000"
+    rebuildStrategy: ignoreContextChanges
+    buildKit:
+      args: ["--platform", "linux/amd64"]
+  dev-optimized:
+    image: ${IMAGE_DEV}
+    dockerfile: ./Dockerfile.dev
+    context: ./
+    buildArgs:
+      PYTHON_VERSION: "3.9.12-slim-bullseye"
+    rebuildStrategy: ignoreContextChanges
+    buildKit:
+      args: ["--platform", "linux/amd64"]
+  redis-stack:
+    image: ${IMAGE_REDIS_STACK}
+    dockerfile: devspace-deployment/redis-stack/Dockerfile
+    context: devspace-deployment/redis-stack/
+    buildArgs:
+      REDISJSON_VERSION: 2.6.6
+      REDISEARCH_VERSION: 2.10.0
+    rebuildStrategy: ignoreContextChanges
+    buildKit:
+      args: ["--platform", "linux/amd64"]
+
+localRegistry:
+  enabled: false
+
+# Here we define the deployment of the Kubernetes assets.
+deployments:
+  slack-server:
+    kubectl:
+      manifests:
+        - devspace-deployment/kube-proxy/
+        - devspace-deployment/manifest/
+        - devspace-deployment/redis/manifest.yaml
+      patches:
+        - op: replace
+          target:
+            apiVersion: apps/v1
+            kind: Deployment
+            name: slack-bot-server
+          path: spec.template.spec.containers[0].image
+          value: ""
+        - op: replace
+          target:
+            apiVersion: apps/v1
+            kind: StatefulSet
+            name: slack-bot-redis-master
+          path: spec.template.spec.containers[0].image
+          value: ""
+
+# Here we define the development process.
+dev:
+  slack-bot-server:
+    # Select the pod via labelSelector:
+    labelSelector:
+      app: slack-bot-server
+
+    # Replace the container image with this dev-optimized image (allows to skip image building during development)
+    devImage: ${IMAGE_DEV}
+    # Sync files between the local filesystem and the development container
+    sync:
+      - path: ./:/app
+        excludePaths:
+          - .git/
+    # Open a terminal and use the following command to start it
+    terminal:
+      command: ./devspace_start.sh
+    # Inject a lightweight SSH server into the container (so your IDE can connect to the remote dev env)
+    ssh:
+      enabled: true
+      localHostname: slack-bot.devspace
+    # Make the following commands from my local machine available inside the dev container
+    proxyCommands:
+      - command: devspace
+      - command: kubectl
+      - gitCredentials: true
+    # Forward the following ports to be able access your application via localhost
+    ports:
+      - port: "3000:3000"

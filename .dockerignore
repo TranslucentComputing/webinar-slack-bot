@@ -1,0 +1,27 @@
+Dockerfile
+Dockerfile.dev
+
+# git
+**/.git
+**/.gitignore
+**/.gitattributes
+
+# Folders
+devspace-deployment/
+docs/
+**/.vscode
+**/coverage
+**/.DS_Store
+**/.devspace
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+**/*.py[cod]

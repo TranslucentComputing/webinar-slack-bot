@@ -1,0 +1,9 @@
+[flake8]
+ignore = ["D205", "D400", "D202", "D401"]
+max-line-length = 100
+max-complexity = 18
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist

@@ -1,0 +1,89 @@
+# This is a Kubernetes Deployment
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  # The name of the Deployment
+  name: slack-bot-proxy-deployment
+
+spec:
+  # This selector is how the Deployment identifies which Pods to manage
+  # In this case, the Deployment manages any Pods with the label 'app=slack-bot-proxy'
+  selector:
+    matchLabels:
+      app: slack-bot-proxy
+
+  # The number of Pod replicas that should be maintained
+  replicas: 1
+
+  # The Pod template used to create new Pods when needed
+  template:
+    metadata:
+      # Labels to apply to each Pod created from this template
+      labels:
+        app: slack-bot-proxy
+
+    spec:
+      securityContext: # Set securityContext at the pod level
+        runAsUser: 10001 # User ID > 10,000
+        runAsGroup: 10001 # Group ID > 10,000
+        sysctls:
+          - name: net.ipv4.ip_unprivileged_port_start
+            value: "80"
+      containers:
+        - name: nginx # The name of the container to create in each Pod
+          image: nginx:1.25.1 # The image to use for the container, Use a specific version of the image instead of 'latest'
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80 # The port the container exposes
+
+              # Liveness Probe
+          livenessProbe:
+            httpGet:
+              path: /healthz # The path to probe
+              port: 18080
+            initialDelaySeconds: 60 # Delay before the first probe
+            periodSeconds: 10 # How often to perform the probe
+
+          # Readiness Probe
+          readinessProbe:
+            httpGet:
+              path: /healthz # The path to probe
+              port: 18080
+            initialDelaySeconds: 30 # Delay before the first probe
+            periodSeconds: 5 # How often to perform the probe
+
+          resources:
+            # The 'limits' field describes the maximum amount of compute resources that a container can use.
+            limits:
+              cpu: 250m # The container requires at least 0.25 CPU cores.
+              memory: 128Mi # The container requires at least 128MiB of RAM.
+              ephemeral-storage: 1Gi # Add ephemeral storage limit
+
+            # The 'requests' field describes the minimum amount of compute resources that should be reserved for a container.
+            # The Kubernetes scheduler uses this information to decide which node to place the Pod on.
+            requests:
+              cpu: 250m # The container requires at least 0.25 CPU cores.
+              memory: 128Mi # The container requires at least 128MiB of RAM.
+              ephemeral-storage: 1Gi # Add ephemeral storage limit
+
+          securityContext:
+            readOnlyRootFilesystem: true # Set the filesystem to read-only
+            runAsNonRoot: true # Run as non-root user
+
+          # Define where we mount the volume in the container
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/nginx/nginx.conf # The path inside the container where the volume is mounted
+              subPath: nginx.conf # The file to mount
+            - name: tmp-volume
+              mountPath: /tmp
+
+      # Define the volumes to attach to the Pod
+      volumes:
+        - name: config-volume # The name of the volume
+          configMap: # The volume is a ConfigMap
+            name: slack-bot-proxy-configmap # The name of the ConfigMap
+        - name: tmp-volume
+          emptyDir:
+            sizeLimit: 500Mi

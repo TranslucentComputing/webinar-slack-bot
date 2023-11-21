@@ -1,0 +1,64 @@
+# This is a Kubernetes ConfigMap
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  # The name of the ConfigMap
+  name: slack-bot-proxy-configmap
+
+data:
+  # Here we are defining the configuration for nginx
+  nginx.conf: |
+    worker_processes  1;
+    pid        /tmp/nginx.pid;
+    events {
+      worker_connections  1024;
+    }
+    http {
+      include /etc/nginx/mime.types;
+      default_type application/octet-stream;
+
+      server_tokens off;
+
+      # Temporary directories for kubernetes "readonlyfilesystem"
+      client_body_temp_path /tmp/nginx-client-body;
+      proxy_temp_path       /tmp/nginx-proxy;
+      fastcgi_temp_path     /tmp/nginx-fastcgi;
+      uwsgi_temp_path       /tmp/nginx-uwsgi;
+      scgi_temp_path        /tmp/nginx-scgi;
+
+      server {
+        listen 80;
+        resolver kube-dns.kube-system.svc.cluster.local ipv6=off valid=10s;
+        set $upstream http://slack-bot-server.webinar.svc.cluster.local:3000;
+
+        location / {
+          proxy_set_header   X-Real-IP $remote_addr;
+          proxy_set_header   Host      $http_host;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_http_version 1.1;
+          proxy_set_header Connection "";
+          proxy_connect_timeout 300;
+          proxy_send_timeout 300;
+          proxy_read_timeout 300;
+          send_timeout 300;
+          # we don't want nginx trying to do something clever with
+          # redirects, we set the Host: header above already.
+          proxy_redirect off;
+          proxy_pass $upstream;
+        }
+      }
+
+      server {
+          listen 18080 default_server  backlog=511;
+          listen [::]:18080 default_server  backlog=511;
+          set $proxy_upstream_name "-";
+
+          # Access the path. If 200 is returned, Nginx can receive requests.
+          location /healthz {
+              access_log off;
+              return 200;
+          }
+      }
+    }

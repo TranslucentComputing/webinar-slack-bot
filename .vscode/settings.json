@@ -1,0 +1,89 @@
+{
+  "window.zoomLevel": 2,
+  "workbench.tree.indent": 20,
+  "editor.rulers": [
+    100
+  ],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.cursorStyle": "block-outline",
+  "editor.cursorBlinking": "smooth",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fill",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "out": false,
+    "dist": true,
+    "**/*.pyc": true,
+    "obj": true,
+    "bin": true,
+    "**/__pycache__": true,
+    "**/.mypy_cache/**": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**.lock": true,
+  },
+  "search.exclude": {
+    "out": true,
+    "dist": true,
+    "coverage": true,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "*.tmGrammar.json"
+      ],
+      "url": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json"
+    }
+  ],
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json": "*.tmGrammar.yml"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.wordWrapColumn": 100,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "files.trimTrailingWhitespace": false
+  },
+  "python.testing.pytestArgs": [
+    "tests",
+    "--no-cov",
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+  },
+}
