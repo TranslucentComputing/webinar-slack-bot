@@ -43,7 +43,7 @@ pyenv local webinar-slackbot
 
 ### Poetry Configuration
 
-After the Python environment has been created with pyenv, we install Poetry.
+After the Python environment has been created with pyenv, we install Poetry:
 
 ```zsh
 python -m pip install -U pip setuptools
