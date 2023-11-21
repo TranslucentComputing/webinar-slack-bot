@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Slack Bot for Kubernetes
+nav_order: 1
 nav_exclude: false
-nav_order: 0
 ---
 
 Hi!
