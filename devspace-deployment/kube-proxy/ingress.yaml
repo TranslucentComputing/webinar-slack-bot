@@ -9,10 +9,10 @@ metadata:
   # Annotations are arbitrary metadata you can attach to the Ingress object
   annotations:
     # Specifies the issuer that should be used to issue the certificate
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: <your-cluster-issuer>
 
     # Specifies the external DNS hostname for this Ingress
-    external-dns.alpha.kubernetes.io/hostname: slack-bot.tekstackapps.com
+    external-dns.alpha.kubernetes.io/hostname: <your-domain-name>
 
     # Sets custom HTTP headers to add security
     nginx.ingress.kubernetes.io/configuration-snippet: |
@@ -28,7 +28,7 @@ spec:
   ingressClassName: "nginx"
   # A list of host rules used to route traffic
   rules:
-    - host: slack-bot.tekstackapps.com
+    - host: <your-domain-name>
       http:
         paths:
           - backend:
@@ -41,6 +41,6 @@ spec:
   # The configuration for TLS
   tls:
     - hosts:
-        - slack-bot.tekstackapps.com
+        - <your-domain-name>
       # The name of the Secret that contains the TLS private key and certificate
       secretName: slack-bot-ssl

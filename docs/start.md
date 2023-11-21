@@ -6,7 +6,60 @@ nav_order: 1
 
 ## Update Kubernetes Manifest
 
-### Service Monitor
+## Ingress
+
+In Kubernetes, an Ingress resource is a flexible tool that manages external access to services within a cluster. It provides HTTP and HTTPS routing to services based on defined rules.
+
+Ingress serves as an entry point for your cluster's network, enabling external traffic to reach the correct services within your Kubernetes cluster. It allows you to expose multiple services under a single IP address, with traffic routing based on the request's host or path.
+
+Since the Slack system requires a public domain to access we are deploying Ingress resource and it has to be update before deployment. The file to update is `devspace-deployment/kube-proxy/ingress.yaml`
+
+### Replace the Hostname
+
+Locate the line under annotations.
+
+```yaml
+external-dns.alpha.kubernetes.io/hostname: <your-domain-name>
+```
+
+External DNS is used to manage the Cloud DNS entries. It creates DNS record for the domain name.
+
+Update Host in Rules and TLS.
+
+```yaml
+- host: <your-domain-name>
+```
+
+And in the TLS section.
+
+```yaml
+- hosts:
+    - <your-domain-name>
+```
+
+### Adjust the Certificate Manager Annotation
+
+```yaml
+cert-manager.io/cluster-issuer: <your-cluster-issuer>
+```
+
+The cert-manager is used to provision Lets Encrypt TLS certificate.
+
+To find the name of the cluster issuer installed with in your cluster, list all the cluster issuers.
+
+```zsh
+kubectl get clusterissuer
+```
+
+The result from the command will list the name of different cluster issuers available within your cluster. Choose one and update the ingress.yaml.
+
+To get some more feedback about specific cluster issuer, execute:
+
+```zsh
+kubectl describe clusterissuer [name-of-clusterissuer]
+```
+
+## Service Monitor
 
 In Prometheus, an open-source monitoring and alerting toolkit, used in Kubernetes environments, a "Service Monitor" is a specific resource type in the Prometheus Operator. The Prometheus Operator simplifies the deployment and configuration of Prometheus monitoring instances.
 
@@ -43,3 +96,45 @@ Update the service_monitor.yaml and to the labels add
 ```yaml
 release: dev-tekstack-monitoring-kube-prom-stack
 ```
+
+## Update DevSpace Images
+
+DevSpace is used to build images for the required containers that are deployed. In DevSpace, an image typically refers to a Docker image. This is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files. By containerizing applications into images, DevSpace enables consistent, reliable, and portable software deployments.
+
+To make it easier to update the image for your specific image repository the image names have be externalized into the ```.env.devspace``` file. There is all ```.env.devspace_bak``` that has the variables that are expected by the devspace.yaml file.
+
+Create the ```.env.devspace``` file with full image names.
+
+`IMAGE=`: This is the main Docker image for your application. It is used with `devspace deploy`.
+
+`IMAGE_DEV=`: This Docker image specifically tailored for development purposes. It is used with `devspace dev`.
+
+`IMAGE_REDIS_STACK=`: This image for a Redis deployment.
+
+Since we are using Google image repository our file would look like
+
+```zsh
+IMAGE=gcr.io/<project_name>/webinar/slackbot/slack-bot-server
+IMAGE_DEV=gcr.io/<project_name>/webinar/slackbot/slack-bot-server-devspace
+IMAGE_REDIS_STACK=gcr.io/<project_name>/webinar/slackbot/redis-stack
+```
+
+We store all the images under the same folder `webinar`.
+
+Since DevSpace will automatically build and push this images to your repository you should have and configure access to the repository.
+
+## Update Slack credentials
+
+To access Slack server with the Slack Bot we have to provide the Slack credentials. The credentials are locate in the `.env` file. We also provide `.env_bak` file as an example.
+
+Create the `.env` file and update:
+
+```zsh
+# SLACK_BOT_TOKEN is used to authenticate your bot with the Slack API.
+SLACK_BOT_TOKEN=add_me
+
+# SLACK_SIGNING_SECRET is used to verify incoming requests from Slack.
+SLACK_SIGNING_SECRET=add_me
+```
+
+Slack configuration can be found [here](slack.html).
