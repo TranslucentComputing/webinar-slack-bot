@@ -2,6 +2,7 @@
 layout: default
 title: Before Dev or Deployment
 nav_order: 1
+nav_exclude: false
 ---
 
 There are several resource in this project that have to customize for your deployment.

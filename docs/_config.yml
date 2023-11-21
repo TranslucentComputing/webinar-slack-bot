@@ -5,3 +5,5 @@ search_enabled: false
 sticky_navigation: true
 prev_next_buttons_location: None
 edit_on_github: false
+site_author: TC Team
+github_docs_folder: true

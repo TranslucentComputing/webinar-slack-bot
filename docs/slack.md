@@ -2,6 +2,7 @@
 layout: default
 title: Slack Configuration
 nav_order: 5
+nav_exclude: false
 ---
 
 Since we are using Slack to build the bot, we have to configure Slack App. To initiate the Slack app creation follow this link [create app](https://api.slack.com/apps?new_app=1)
@@ -19,6 +20,8 @@ Choose the Slack app name and the Slack workspace where you will access the app 
 
 Once the app has been created in the "Basic Information" section you will find the "App Credentials". We use these credentials with the Slack Bot and we defined them in `.env` file. More info [Here](start.md)
 
+![app creds](assets/img/slack_app_credentials.jpg)
+
 We also have the options to customize the look and feel of the Slack app in the "Display Information" section.
 
 ![app name](assets/img/slack_display.png)
@@ -32,6 +35,8 @@ For this application we give the Bot "app_mentions:read" and "chat:write" permis
 ![app scopes](assets/img/slack_scopes.png)
 
 Once the scopes have been added the "Bot User OAuth Token" will be available in this section, it does required reinstalling the app. The reinstalling the app will simply refresh the app in the Slack workspace. The Bot Token should be added to the `.env` file.
+
+![app creds](assets/img/slack_bot_token.jpg)
 
 ## Slack Events
 
