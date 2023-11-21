@@ -45,7 +45,7 @@ The configuration of Slack events has to be configured after the `.env` file has
 
 In the "Events Subscriptions" we want to enable the events, configure the request URL, and configure the bot events subscriptions.
 
-The URL is the public URL that is configured in the Ingress YAML. More info is available [here](start.md)
+The URL is the public URL that is configured in the Ingress YAML. More info is available [here](start.html)
 
 ![app events](assets/img/slack_events.png)
 
