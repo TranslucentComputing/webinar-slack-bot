@@ -8,7 +8,7 @@ Hi!
 
 ## What is this project?
 
-The project is a feature-rich Slack bot application developed and deployed within a Kubernetes environment using DaveSpace!
+This project showcases the development of a Slack Bot using the Slack Bolt framework and FastAPI web framework, demonstrating the use of DevSpace for efficient deployment and orchestration within a Kubernetes cluster.
 
 ## Description
 
