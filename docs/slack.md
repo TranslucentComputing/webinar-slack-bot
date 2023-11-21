@@ -11,7 +11,7 @@ After any required login, you will be presented with:
 
 ![create app](assets/img/slack_create_app.png)
 
-Let's create the app "From scratch", Next:
+Next, let's create the app "from scratch":
 
 ![app name](assets/img/slack_app_name.png)
 
@@ -19,19 +19,19 @@ Choose the Slack app name and the Slack workspace where you will access the app 
 
 ## Basic Information
 
-Once the app has been created in the "Basic Information" section you will find the "App Credentials". We use these credentials with the Slack Bot and we define them in the`.env` file. More info [Here](start.md)
+Once the app has been created in the "Basic Information" section you will find the "App Credentials". We use these credentials with the Slack Bot and define them in the`.env` file. More info [Here](start.md)
 
 ![app creds](assets/img/slack_app_credentials.jpg)
 
-We also have the options to customize the look and feel of the Slack app in the "Display Information" section.
+We can customize the look and feel of the Slack app in the "Display Information" section.
 
 ![app name](assets/img/slack_display.png)
 
 ## OAuth and Permissions
 
-Here we configure the permissions for the Slack Bot. Under "Scopes" in the "Bot Token Scopes" add the required scopes.
+Here, we configure the permissions for the Slack Bot. Under "Scopes" in the "Bot Token Scopes" add the required scopes.
 
-For this application we give the Bot "app_mentions:read" and "chat:write" permissions.
+For this application, we give the Bot "app_mentions:read" and "chat:write" permissions.
 
 ![app scopes](assets/img/slack_scopes.png)
 
@@ -41,9 +41,9 @@ Once the scopes have been added the "Bot User OAuth Token" will be available in 
 
 ## Slack Events
 
-The configuration of Slack events has be configured after the `.env` file has been updated and the application has been deployed with DevSpace. [Here](app_dev.html)
+The configuration of Slack events has to be configured after the `.env` file has been updated, and the application has been deployed with DevSpace. [Here](app_dev.html)
 
-In the "Events Subscriptions" we want to enable the events, configure the request URL and bot events subscription.
+In the "Events Subscriptions" we want to enable the events, configure the request URL, and configure the bot events subscriptions.
 
 The URL is the public URL that is configured in the Ingress YAML. [Here](start.md)
 
@@ -51,6 +51,6 @@ The URL is the public URL that is configured in the Ingress YAML. [Here](start.m
 
 ## Slack Interactions
 
-To allow for two-way communication, we enable Slack interactivity feature. Since we required the Slack Bot application to be running for the request URL, the application has to be deployed with DevSpace [Here](app_dev.html).
+To allow for two-way communication, we enabled the Slack interactivity feature. Since we require the Slack Bot application to run for the request URL, the application must be deployed with DevSpace [Here](app_dev.html).
 
 ![app interactions](assets/img/slack_interactions.png)
