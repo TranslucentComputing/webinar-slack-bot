@@ -1,12 +1,16 @@
 ---
 layout: default
-title: Quick Start
+title: Before Dev or Deployment
 nav_order: 1
 ---
 
+There are several resource in this project that have to customize for your deployment.
+
 ## Update Kubernetes Manifest
 
-## Ingress
+Before deploying the application, there are several Kubernetes files that have to be customize for your deployment.
+
+### Ingress
 
 In Kubernetes, an Ingress resource is a flexible tool that manages external access to services within a cluster. It provides HTTP and HTTPS routing to services based on defined rules.
 
@@ -59,7 +63,7 @@ To get some more feedback about specific cluster issuer, execute:
 kubectl describe clusterissuer [name-of-clusterissuer]
 ```
 
-## Service Monitor
+### Service Monitor
 
 In Prometheus, an open-source monitoring and alerting toolkit, used in Kubernetes environments, a "Service Monitor" is a specific resource type in the Prometheus Operator. The Prometheus Operator simplifies the deployment and configuration of Prometheus monitoring instances.
 
