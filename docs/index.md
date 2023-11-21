@@ -49,7 +49,5 @@ Review:
 
 ### Slides From Webinar
 
-- Kubert App Journey -> <object data="/assets/pdf/kubert_application_journey.pdf" type="application/pdf" width="100%">
-</object>
-- Slack Bot -> <object data="/assets/pdf/assets/pdf/slack_bot.pdf" type="application/pdf" width="100%">
-</object>
+- [Kubert App Journey]("/assets/pdf/kubert_application_journey.pdf")
+- [Slack Bot]("/assets/pdf/assets/pdf/slack_bot.pdf")
