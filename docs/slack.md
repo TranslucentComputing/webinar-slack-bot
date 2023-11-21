@@ -19,7 +19,7 @@ Choose the Slack app name and the Slack workspace where you will access the app 
 
 ## Basic Information
 
-Once the app has been created in the "Basic Information" section you will find the "App Credentials". We use these credentials with the Slack Bot and define them in the`.env` file. More info [Here](start.md)
+Once the app has been created in the "Basic Information" section you will find the "App Credentials". We use these credentials with the Slack Bot and define them in the`.env` file. More info is available [here](start.md)
 
 ![app creds](assets/img/slack_app_credentials.jpg)
 
