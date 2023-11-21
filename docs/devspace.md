@@ -9,7 +9,7 @@ nav_exclude: false
 
 DevSpace is a developer tool that simplifies the development and deployment processes for Kubernetes. It is designed to streamline the workflow of building, testing, and deploying applications in Kubernetes environments. By providing an efficient and straightforward interface, DevSpace allows developers to focus more on writing code and less on the complexities of Kubernetes configuration and management.
 
-<a href="https://www.devspace.sh/docs/getting-started/installation" target="_blank">Install link</a>
+<a href="https://www.devspace.sh/docs/getting-started/installation" target="_blank">Install DevSpace</a>
 
 ### DevSpace Configuration
 
