@@ -19,7 +19,7 @@ There are several Kubernetes tools that are used by the Slack Bot deployment.
 These tool provide the basic functionality in the cluster and support other tools and applications.
 These basic tools are deployed with Kubert basic package.
 
-- `ExternalDNS`: is a tool in Kubernetes that automates the management of DNS records based on services and ingresses within your Kubernetes cluster. It simplifies the process of making Kubernetes services discoverable via public DNS servers. It supports a variety of DNS providers, including AWS Route53, Google Cloud DNS, Azure DNS, Cloudflare, and more, allowing flexibility in choosing where to host DNS records.  ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers. This means that it can automatically update DNS records as services are added, modified, or removed in the cluster. *[Helm Chart](https://artifacthub.io/packages/helm/bitnami/external-dns)*.
+- `ExternalDNS`: is a tool that automates the management of DNS records based on services and ingresses within your Kubernetes cluster. It simplifies the process of making Kubernetes services discoverable via public DNS servers. It supports a variety of DNS providers, including AWS Route53, Google Cloud DNS, Azure DNS, Cloudflare, and more, allowing flexibility in choosing where to host DNS records.  ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers. This means that it can automatically update DNS records as services are added, modified, or removed in the cluster. *[Helm Chart](https://artifacthub.io/packages/helm/bitnami/external-dns)*.
 
 - `Cert-Manager`: is a native Kubernetes certificate management controller. It automates the management, issuance, and renewal of TLS certificates within Kubernetes environments. This tool plays a crucial role in ensuring secure communication within and to the Kubernetes cluster by providing a way to issue and manage SSL/TLS certificates easily. Cert-Manager automates the process of obtaining, renewing, and using SSL/TLS certificates for Kubernetes applications. It ensures that certificates are valid and up-to-date without manual intervention. Cert-Manager can automatically issue certificates from Let's Encrypt, a widely-used, free, automated, and open Certificate Authority (CA). It handles the ACME protocol (Automated Certificate Management Environment) for communicating with Let's Encrypt and other ACME-compliant CAs. *[Helm Chart](<https://artifacthub.io/packages/helm/cert-manager/cert-manager>)*.
 
@@ -30,3 +30,17 @@ These basic tools are deployed with Kubert basic package.
 Here is Kubert high-level view of the observability stack.
 
 ![observability](assets/img/kubert_observability.png)
+
+While we deploy full observability stack in our dev and production cluster, not every application uses the full stack. The Slack Bot has been configured for metrics and logs. It has been customized to allow Prometheus to scrap metrics from the FastAPI web container. Additionally, the logs have be customize in the Slack bot application to allow for log collections and aggregation. The metrics and the logs are used for both preventative and detective controls.
+
+## Reading Guide
+
+Since we cover a lot of concept and tools in this documentations here guide through the docs that we think might be efficient.
+
+Review:
+
+1. IDE [Here](vscode.html).
+2. Python and library management [Here](python.html).
+3. DevSpace [Here](devspace.html)
+4. Slack configuration [Here](slack.html).
+5. Before you dev [Here](start.html)
