@@ -1,7 +1,11 @@
 ---
 layout: default
-title: Index
+title: Slack Bot for Kubernetes
 nav_exclude: true
 ---
 
-# Webinar Support
+# {{ page.title }}
+
+## Description
+
+## Features
