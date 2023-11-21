@@ -49,5 +49,5 @@ Review:
 
 ### Slides From Webinar
 
-- [Kubert App Journey]("/assets/pdf/kubert_application_journey.pdf")
-- [Slack Bot]("/assets/pdf/assets/pdf/slack_bot.pdf")
+- [Kubert App Journey](assets/pdf/kubert_application_journey.pdf)
+- [Slack Bot](assets/pdf/assets/pdf/slack_bot.pdf)
