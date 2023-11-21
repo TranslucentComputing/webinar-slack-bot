@@ -9,6 +9,6 @@ prev_next_buttons_location: None
 edit_on_github: false
 site_author: TC Team
 github_docs_folder: true
-repo_url: "https://github.com/TranslucentComputing"
+repo_url: "https://github.com/TranslucentComputing/webinar-slack-bot"
 hljs_style: github-gist
 logo: "https://www.translucentcomputing.com/wp-content/uploads/2022/05/logo.svg"
