@@ -6,6 +6,10 @@ nav_exclude: true
 
 Hi!
 
+## What is this project?
+
+The project is a feature-rich Slack bot application developed and deployed within a Kubernetes environment using DaveSpace!
+
 ## Description
 
 The Slack Bot is a solution designed to enhance team productivity and interaction within Slack channels. Developed with DevSpace, this bot is a prime example of modern, cloud-native technology in action. It's built on the versatile FastAPI web framework and utilizes a suite of powerful Kubernetes tools to ensure seamless deployment and operation.
