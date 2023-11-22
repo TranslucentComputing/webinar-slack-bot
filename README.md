@@ -1,4 +1,14 @@
-# Slack Bot application build for Kubernetes using DevSpace
+# Slack Bot application built for Kubernetes using DevSpace
+
+## Webinar
+Join us for a webinar featuring our CTO, Patryk Golabek, as he discusses strategies to reduce complexity in working with Kubernetes. During the webinar, he will conduct a detailed walk-through of our Slack Bot application.
+
+**Date: Wednesday, November 22, 2023**
+**Time: 1:00 PM EST**
+
+Register here: https://go.translucentcomputing.com/kubesuccess-webinar-registration
+
+
 
 ## Introduction
 
