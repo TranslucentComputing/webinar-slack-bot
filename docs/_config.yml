@@ -1,6 +1,6 @@
 title: Slack Bot For Kubernetes
 description: This project demonstrates how to use DevSpace and develop Slack Bot with Slack Bolt framework and FastAPI web framework. With deployment to the Kubernetes cluster.
-search_enabled: true
+search_enabled: false
 sticky_navigation: true
 prev_next_buttons_location: None
 edit_on_github: false
