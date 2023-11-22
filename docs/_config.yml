@@ -10,3 +10,5 @@ github_docs_folder: true
 repo_url: "https://github.com/TranslucentComputing/webinar-slack-bot"
 hljs_style: github-gist
 logo: "https://www.translucentcomputing.com/wp-content/uploads/2022/05/logo.svg"
+google_analytics: G-3XH85QS7YF
+google_analytics_anonymize_ip: true
