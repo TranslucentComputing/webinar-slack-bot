@@ -5,7 +5,7 @@ nav_order: 3
 nav_exclude: false
 ---
 
-## VS Code
+# Visual Studio Code (IDE)
 
 Visual Studio Code (VS Code) is a popular, open-source Integrated Development Environment (IDE) developed by Microsoft. It has versatility, extensibility, and support for a wide range of programming languages and tools.
 

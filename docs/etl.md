@@ -5,6 +5,8 @@ nav_order: 8
 nav_exclude: false
 ---
 
+# Redis ETL Job
+
 Most of the systems and applications have a state. To demonstrate how we can manage the state in an application we added Redis database to the project to store data that the Slack Bot can access during the user interactions.
 
 ## Redis Deployment

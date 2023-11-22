@@ -5,13 +5,13 @@ nav_order: 5
 nav_exclude: false
 ---
 
-## DevSpace
+# DevSpace
 
 DevSpace is a developer tool that simplifies the development and deployment processes for Kubernetes. It is designed to streamline the workflow of building, testing, and deploying applications in Kubernetes environments. By providing an efficient and straightforward interface, DevSpace allows developers to focus more on writing code and less on the complexities of Kubernetes configuration and management.
 
 <a href="https://www.devspace.sh/docs/getting-started/installation" target="_blank">Install DevSpace</a>
 
-### DevSpace Configuration
+## DevSpace Configuration
 
 `devspace.yaml` is a file used to customize and configure the development environment.
 
@@ -27,7 +27,7 @@ In our Slack Bot DevSpace we have five major sections where we define DevSpace c
 
 - Development (dev) Section: Defines the development environment for the slack-bot-server. It includes settings for selecting the pod, replacing the container image with a development-optimized image, syncing files between the local system and the development container, terminal setup, SSH server injection, proxy commands, and port forwarding.
 
-### DevSpace Commands
+## DevSpace Commands
 
 Before you start using DevSpace you have to configure your Kubernetes context. A Kubernetes context is a set of access parameters for a Kubernetes cluster. It's part of the Kubernetes configuration file (`kubeconfig`) and serves as a way to quickly switch between different clusters and namespaces within those clusters.
 

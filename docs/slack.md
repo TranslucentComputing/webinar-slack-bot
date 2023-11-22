@@ -5,6 +5,8 @@ nav_order: 6
 nav_exclude: false
 ---
 
+# Slack Configuration
+
 Since we are using Slack to build the bot, we have to configure Slack App. To initiate the Slack app creation follow this link <a href="https://api.slack.com/apps?new_app=1" target="_blank">create app</a>.
 
 After any required login, you will be presented with:

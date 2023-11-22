@@ -5,7 +5,7 @@ nav_order: 7
 nav_exclude: false
 ---
 
-## Application Development in the Slack Bot Project
+# Application Development in the Slack Bot Project
 
 The Slack Bot project leverages FastAPI, a modern, fast web framework for building APIs with Python. The project adopts a standard layered architecture, ensuring maintainability and scalability. A significant focus is placed on robust testing, using `pytest` for both unit and integration testing, with the support of <a href="https://testcontainers.com" target="_blank">Testcontainers</a> to simulate real-world scenarios.
 

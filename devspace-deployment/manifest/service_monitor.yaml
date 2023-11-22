@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   name: slack-bot-server-monitor
   labels:
-    release: "replace-me"
+    release: dev-tekstack-monitoring-kube-prom-stack
 spec:
   jobLabel: slack-bot-server-monitor
   selector:

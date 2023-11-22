@@ -5,6 +5,8 @@ nav_order: 2
 nav_exclude: false
 ---
 
+# Before Dev or Deployment
+
 Several project resources must be customized for your development and deployment.
 
 ## Update Kubernetes Manifest
