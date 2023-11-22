@@ -1,4 +1,12 @@
-# Slack Bot application build for Kubernetes using DevSpace
+# Slack Bot application built for Kubernetes using DevSpace
+
+Join us for a webinar with our CTO, Patryk Golabek, covering how to reduce complexity when working with Kubernetes. He will do a walk-through of this Slack Bot application during the webinar. 
+
+Wed Nov 22, 1 pm EST
+
+https://go.translucentcomputing.com/kubesuccess-webinar-registration
+
+
 
 ## Introduction
 
