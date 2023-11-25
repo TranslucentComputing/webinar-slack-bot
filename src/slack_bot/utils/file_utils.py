@@ -8,9 +8,8 @@ Author: Patryk Golabek
 Company: Translucent Computing Inc.
 Copyright: 2023 Translucent Computing Inc.
 """
-
 import json
-from typing import Any, Union
+from typing import Any
 
 from ..exceptions.custom_exceptions import (
     JSONFileError,
@@ -20,7 +19,7 @@ from ..exceptions.custom_exceptions import (
 )
 
 
-def load_json_file(filename: str) -> Union[Any, None]:
+def load_json_file(filename: str) -> Any:
     """
     Read a JSON file and load its data.
 

@@ -51,6 +51,10 @@ class IndexingError(Error):
     """Raised when there's an error during the indexing process."""
 
 
+class CSVFileReadError(Exception):
+    """Custom exception for handling CSV file read errors."""
+
+
 class JSONFileError(Exception):
     """Base exception for errors related to reading JSON files."""
 
@@ -80,7 +84,3 @@ class JSONInvalidEncodingError(JSONFileError):
         super().__init__(
             "JSON File '%s' does not use valid utf-8 encoding. Error: %s", filename, error
         )
-
-
-class CSVFileReadError(Exception):
-    """Custom exception for handling CSV file read errors."""

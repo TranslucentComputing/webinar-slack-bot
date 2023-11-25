@@ -11,6 +11,10 @@ from src.slack_bot.exceptions.custom_exceptions import (
     BusinessLogicError,
     Error,
     InvalidJsonDataError,
+    JSONFileError,
+    JSONFileNotFoundError,
+    JSONInvalidEncodingError,
+    JSONInvalidError,
     SlackMissingEventTypeError,
     SlackServiceError,
 )
@@ -103,3 +107,40 @@ def test_slack_service_error_custom_description():
     assert str(excinfo.value) == "Slack service error"
     assert excinfo.value.status_code == 400
     assert excinfo.value.description == "Custom description"
+
+
+def test_json_file_error():
+    """Test if JSONFileError correctly formats its message when raised."""
+    test_message = "Test error with parameter %s"
+    test_param = "param1"
+    expected_message = "Test error with parameter param1"
+
+    with pytest.raises(JSONFileError) as excinfo:
+        raise JSONFileError(test_message, test_param)
+    assert expected_message in str(excinfo.value)
+
+
+def test_json_file_not_found_error():
+    """Test if JSONFileNotFoundError is raised with the correct message when a JSON file is not found."""
+    with pytest.raises(JSONFileNotFoundError) as excinfo:
+        raise JSONFileNotFoundError("missing_file.json")
+    assert "JSON File 'missing_file.json' not found." in str(excinfo.value)
+
+
+def test_json_invalid_error():
+    """Test if JSONInvalidError is raised with the correct message when a JSON file is invalid."""
+    with pytest.raises(JSONInvalidError) as excinfo:
+        raise JSONInvalidError("invalid_file.json", "Invalid syntax")
+    assert "JSON File 'invalid_file.json' is not a valid JSON. Error: Invalid syntax" in str(
+        excinfo.value
+    )
+
+
+def test_json_invalid_encoding_error():
+    """Test if JSONInvalidEncodingError is raised with the correct message when a JSON file has invalid encoding."""
+    with pytest.raises(JSONInvalidEncodingError) as excinfo:
+        raise JSONInvalidEncodingError("encoded_file.json", "Non UTF-8 encoding")
+    assert (
+        "JSON File 'encoded_file.json' does not use valid utf-8 encoding. Error: Non UTF-8 encoding"
+        in str(excinfo.value)
+    )
